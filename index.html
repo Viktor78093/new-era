@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Демо: скрыто от поисковиков. После продажи удалить эту строку. -->
+<meta name="robots" content="noindex, nofollow">
+<title>New эра — сауна, русская баня на дровах и хамам во Владивостоке, круглосуточно</title>
+<meta name="description" content="Водно-оздоровительный комплекс New эра во Владивостоке: шесть комплексов до 25 человек, русская баня на дровах, хамам, тёплый и холодный бассейны, джакузи, бильярд, караоке. Круглосуточно, ул. Стрелочная, 17Б ст2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Демо для показа владельцу. Фото и отзывы из карточки «New эра» в 2ГИС.
+     Стиль снят с их вывески: вертикальный зелёный щит, белые рубленые буквы
+     «САУНА · NEW ЭРА · ХАМАМ», и с интерьера: графит, серый камень, синяя подсветка бассейнов. */
+  :root {
+    --night: #111415;
+    --stone: #1a1f20;
+    --stone-2: #232a2b;
+    --text: #d3d9d5;
+    --dim: #8b9792;
+    --white: #f3f6f1;
+    --green: #17874a;
+    --green-2: #1f9e58;
+    --led: #5b8cff;
+    --line: rgba(243,246,241,.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--night); color: var(--text); font: 17px/1.65 "Golos Text", system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+
+  /* Заголовки рублеными буквами, как на вывеске */
+  .h {
+    font-family: "Russo One", Impact, sans-serif; font-weight: 400; color: var(--white);
+    text-transform: uppercase; line-height: 1.05; letter-spacing: .01em;
+    font-size: clamp(32px, 4.6vw, 54px);
+  }
+  .h em { font-style: normal; color: var(--green-2); }
+  .lead { max-width: 34em; }
+  .lead + .lead { margin-top: 1em; }
+
+  /* Логотип — зелёная табличка с белой рамкой, как их щит */
+  .logo {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 5px;
+    background: var(--green); color: #fff; border: 2px solid #fff; outline: 2px solid var(--green);
+    font: 20px/1 "Russo One", sans-serif; white-space: nowrap;
+  }
+  .logo small { font-size: 12px; letter-spacing: .04em; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 28px; font-weight: 700; font-size: 16px; border-radius: 4px;
+    border: 2px solid var(--green); color: #fff; background: var(--green);
+    transition: background .2s, color .2s, border-color .2s; font-family: inherit; cursor: pointer;
+  }
+  .btn:hover { background: var(--green-2); border-color: var(--green-2); }
+  .btn.line { background: transparent; color: var(--white); border-color: rgba(243,246,241,.45); }
+  .btn.line:hover { border-color: var(--white); background: rgba(243,246,241,.06); }
+
+  /* Шапка */
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  header {
+    position: fixed; inset: 0 0 auto; z-index: 20; padding: 18px 0; color: var(--white);
+    transition: background .25s, padding .25s, box-shadow .25s;
+  }
+  header.solid, header.open { background: rgba(17,20,21,.96); padding: 10px 0; box-shadow: 0 1px 0 var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  header nav { display: flex; gap: 26px; font-size: 15px; font-weight: 600; }
+  header nav a { opacity: .85; }
+  header nav a:hover { opacity: 1; color: var(--green-2); }
+  .tel { font-weight: 700; white-space: nowrap; }
+  .burger {
+    display: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+    position: relative; margin-right: -10px; color: inherit;
+  }
+  .burger span, .burger span::before, .burger span::after {
+    position: absolute; left: 11px; width: 22px; height: 2px; background: currentColor; content: ""; transition: transform .2s, top .2s, background .2s;
+  }
+  .burger span { top: 21px; }
+  .burger span::before { left: 0; top: -7px; }
+  .burger span::after { left: 0; top: 7px; }
+  header.open .burger span { background: transparent; }
+  header.open .burger span::before { top: 0; transform: rotate(45deg); }
+  header.open .burger span::after { top: 0; transform: rotate(-45deg); }
+
+  /* Первый экран: бассейны с подсветкой + вертикальная вывеска */
+  .hero {
+    position: relative; min-height: 100svh; display: flex; align-items: flex-end; color: var(--white);
+    background: #0d1626 center 55% / cover no-repeat;
+    background-image: linear-gradient(180deg, rgba(10,12,13,.55) 0%, rgba(10,12,13,.2) 40%, rgba(10,12,13,.88) 100%),
+      url("https://cachizer1.2gis.com/reviews-photos/74a7b246-3928-4e2b-a9e8-a34439ffc5a4.jpg");
+  }
+  .hero .wrap { width: 100%; padding-top: 120px; padding-bottom: 72px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .hero h1 { font-family: "Russo One", sans-serif; font-weight: 400; line-height: .95; font-size: clamp(54px, 9vw, 120px); text-transform: uppercase; }
+  .hero .kind { font-weight: 600; font-size: 18px; color: #cfe9d9; letter-spacing: .02em; }
+  .hero .lead { margin-top: 20px; font-size: 19px; color: #e1e6e2; }
+  .hero-note { margin-top: 14px; font-weight: 700; }
+  .hero-note span { color: var(--green-2); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+  .sign {
+    flex: none; width: 104px; padding: 12px 0 14px; background: var(--green); color: #fff;
+    border: 3px solid #fff; outline: 3px solid var(--green);
+    display: flex; flex-direction: column; align-items: center; font-family: "Russo One", sans-serif; line-height: 1;
+    box-shadow: 0 0 60px rgba(31,158,88,.35);
+  }
+  .sign small { font-size: 13px; letter-spacing: .03em; }
+  .sign .new { font-size: 22px; margin: 10px 0 6px; }
+  .sign b { font-weight: 400; font-size: 64px; line-height: 1.02; }
+  .sign small:last-child { margin-top: 10px; }
+
+  /* Блоки «фото + текст» */
+  .split { padding: 110px 0; }
+  .split .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .split.rev .photo { order: 2; }
+  .split.alt { background: var(--stone); }
+  .photo { aspect-ratio: 4 / 5; background: var(--stone-2) center / cover no-repeat; border-radius: 4px; }
+  .split .lead { margin-top: 24px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pair .photo { aspect-ratio: 3 / 4; }
+
+  ul.plain { list-style: none; margin-top: 26px; columns: 2; column-gap: 32px; }
+  ul.plain li { padding: 9px 0 9px 22px; border-bottom: 1px solid var(--line); break-inside: avoid; font-size: 16px; position: relative; }
+  ul.plain li::before { content: ""; position: absolute; left: 2px; top: 18px; width: 9px; height: 9px; background: var(--green-2); }
+  .small { margin-top: 14px; color: var(--dim); font-size: 15px; }
+
+  /* Комплексы и цены */
+  .prices { padding: 110px 0; background: var(--stone); }
+  .prices-top { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; }
+  .table { margin-top: 52px; border-top: 2px solid var(--green); }
+  .row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .row.head { font-size: 14px; font-weight: 600; color: var(--dim); line-height: 1.4; }
+  .row .n { font: 22px/1 "Russo One", sans-serif; color: var(--white); }
+  .row .p { font-size: 20px; font-weight: 700; color: var(--white); }
+  .row .p span { font-size: 14px; font-weight: 500; color: var(--dim); }
+  .extra { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; margin-top: 22px; }
+  .extra b { color: var(--white); }
+
+  /* Отдых: сетка фото с подписями */
+  .rest { padding: 110px 0; }
+  .rest-top { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 14px; margin-top: 52px; }
+  .grid figure { position: relative; background: var(--stone-2) center / cover no-repeat; border-radius: 4px; overflow: hidden; }
+  .grid figure.big { grid-column: span 2; grid-row: span 2; }
+  .grid figcaption {
+    position: absolute; left: 0; bottom: 0; padding: 6px 12px; background: var(--green); color: #fff;
+    font: 14px/1.2 "Russo One", sans-serif; text-transform: uppercase;
+  }
+
+  /* Праздник */
+  .party { padding: 100px 0; background: var(--green); color: #e8f4ec; }
+  .party .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .party .lead { color: #e8f4ec; }
+  .party .btn { background: #fff; border-color: #fff; color: var(--green); margin-top: 30px; }
+  .party .btn:hover { background: transparent; color: #fff; }
+
+  /* Фото полосой */
+  .strip { display: grid; grid-template-columns: repeat(6, 1fr); }
+  .strip div { aspect-ratio: 1; background: var(--stone-2) center / cover no-repeat; }
+
+  /* Отзывы */
+  .reviews { padding: 110px 0; background: var(--stone); }
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 52px; }
+  .quotes blockquote { font-size: 18px; line-height: 1.6; color: var(--white); border-left: 3px solid var(--green-2); padding-left: 22px; }
+  .quotes cite { display: block; margin-top: 14px; font: 16px/1 "Russo One", sans-serif; font-style: normal; color: var(--green-2); text-transform: uppercase; }
+  .reviews .src { margin-top: 48px; font-size: 15px; color: var(--dim); }
+  .reviews .src a { border-bottom: 1px solid currentColor; }
+
+  /* Запись */
+  .book { padding: 110px 0; }
+  .book-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start; }
+  .book .lead { margin-top: 24px; }
+  .form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 22px; background: var(--stone); padding: 34px; border-top: 3px solid var(--green); border-radius: 4px; }
+  .form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: var(--dim); }
+  .form .wide { grid-column: 1 / -1; }
+  .form input, .form select, .form textarea {
+    font: 500 17px/1.4 "Golos Text", sans-serif; color: var(--white); color-scheme: dark;
+    background: var(--night); border: 1.5px solid rgba(243,246,241,.18); border-radius: 4px;
+    padding: 11px 12px; outline: none; width: 100%; min-width: 0;
+  }
+  .form input:focus, .form select:focus, .form textarea:focus { border-color: var(--green-2); }
+  .form textarea { resize: vertical; min-height: 48px; }
+  .checks { display: flex; flex-wrap: wrap; gap: 12px 26px; }
+  .checks label { flex-direction: row; align-items: center; gap: 10px; font-weight: 500; font-size: 16px; color: var(--white); cursor: pointer; }
+  .checks input { width: 20px; height: 20px; accent-color: var(--green); }
+  .send { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+  .form-note { font-size: 13px; color: var(--dim); line-height: 1.5; }
+  .form-msg { font-size: 15px; font-weight: 700; color: var(--green-2); min-height: 1.4em; }
+  .form .err input, .form .err select { border-color: #e0684f; background: #2a1916; }
+
+  /* Окно для Telegram */
+  .modal { position: fixed; inset: 0; z-index: 50; background: rgba(5,7,8,.75); display: grid; place-items: center; padding: 16px; }
+  .modal[hidden] { display: none; }
+  .modal-box { position: relative; width: 100%; max-width: 460px; max-height: 92svh; overflow: auto; background: var(--stone); border-top: 4px solid var(--green); border-radius: 4px; padding: 30px 24px 24px; }
+  .modal-box h3 { font: 28px/1.1 "Russo One", sans-serif; color: var(--white); text-transform: uppercase; }
+  .modal-box .ok { margin-top: 8px; font-weight: 700; color: var(--green-2); }
+  .modal-box pre { margin-top: 14px; padding: 14px; background: var(--night); border-left: 3px solid var(--green-2); white-space: pre-wrap; font: 14px/1.5 "Golos Text", sans-serif; color: var(--white); user-select: all; -webkit-user-select: all; }
+  .modal-box ol { margin: 16px 0 0 20px; font-size: 15px; }
+  .modal-box li { padding: 3px 0; }
+  .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+  .modal-actions .btn { width: 100%; }
+  .modal-x { position: absolute; top: 6px; right: 8px; width: 40px; height: 40px; border: 0; background: none; color: var(--white); font-size: 30px; line-height: 1; cursor: pointer; }
+
+  /* Контакты */
+  .contacts { padding: 110px 0 90px; background: var(--stone); }
+  .c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 44px; align-items: start; }
+  .c-row { padding: 14px 0; border-top: 1px solid var(--line); }
+  .c-row small { display: block; color: var(--dim); font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .c-row div { font-size: 18px; font-weight: 600; color: var(--white); }
+  .c-row a { border-bottom: 1px solid rgba(243,246,241,.3); }
+  .msg { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .c-photo { aspect-ratio: 4 / 5; background: var(--stone-2) center 30% / cover no-repeat; border-radius: 4px; }
+
+  footer { background: var(--night); color: var(--dim); padding: 30px 0 36px; font-size: 15px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  .mbar { display: none; }
+
+  @media (max-width: 900px) {
+    .burger { display: block; }
+    header nav {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 4px 16px 18px;
+      background: rgba(17,20,21,.99); box-shadow: 0 10px 20px -12px rgba(0,0,0,.6); font-size: 17px;
+    }
+    header nav a { padding: 13px 0; border-bottom: 1px solid var(--line); opacity: 1; }
+    header nav a:last-child { border-bottom: 0; }
+    header.open nav { display: flex; }
+    .split, .prices, .rest, .party, .reviews, .book, .contacts { padding: 72px 0; }
+    .split .wrap, .prices-top, .rest-top, .party .wrap, .c-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+    .split.rev .photo { order: 0; }
+    .photo { aspect-ratio: 4 / 3; }
+    .pair .photo { aspect-ratio: 3 / 4; }
+    ul.plain { columns: 1; }
+    .sign { width: 74px; padding: 9px 0 10px; border-width: 2px; outline-width: 2px; }
+    .sign small { font-size: 10px; }
+    .sign .new { font-size: 16px; margin: 7px 0 4px; }
+    .sign b { font-size: 42px; }
+    .row { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+    .row .p { font-size: 18px; }
+    .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: 180px; gap: 10px; margin-top: 40px; }
+    .quotes { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .strip { grid-template-columns: repeat(3, 1fr); }
+    .book-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+    .form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 12px; padding: 22px 16px; }
+    .send .btn { flex: 1 1 100%; }
+    .c-photo { aspect-ratio: 4 / 3; }
+    .mbar {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      position: fixed; inset: auto 0 0; z-index: 10;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(17,20,21,.97); box-shadow: 0 -1px 0 var(--line);
+    }
+    .mbar .btn { padding: 13px 10px; font-size: 15px; }
+    body { padding-bottom: 72px; }
+  }
+  @media (max-width: 480px) {
+    .tel { display: none; }
+    .hero .sign { display: none; }
+    .hero-actions .btn { flex: 1 1 100%; }
+    .logo small { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#"><small>САУНА</small>NEW ЭРА<small>ХАМАМ</small></a>
+    <nav>
+      <a href="#complex">Комплексы</a>
+      <a href="#banya">Баня и хамам</a>
+      <a href="#pool">Бассейны</a>
+      <a href="#rest">Отдых</a>
+      <a href="#book">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+79247312256">+7 924 731-22-56</a>
+    <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kind">Водно-оздоровительный комплекс · Владивосток</p>
+      <h1>New эра</h1>
+      <p class="lead">Шесть комплексов для компании до 25 человек: русская баня на дровах, хамам, тёплый и холодный бассейны, джакузи, бильярд, караоке и комнаты отдыха.</p>
+      <p class="hero-note">Круглосуточно <span>·</span> Стрелочная, 17Б ст2 <span>·</span> 5,0 в 2ГИС</p>
+      <div class="hero-actions">
+        <a class="btn" href="#book">Забронировать онлайн</a>
+        <a class="btn line" href="tel:+79247312256">Позвонить</a>
+      </div>
+    </div>
+    <div class="sign" aria-hidden="true">
+      <small>САУНА</small>
+      <span class="new">NEW</span>
+      <b>Э</b><b>Р</b><b>А</b>
+      <small>ХАМАМ</small>
+    </div>
+  </div>
+</section>
+
+<section class="prices" id="complex">
+  <div class="wrap">
+    <div class="prices-top">
+      <h2 class="h">Шесть комплексов, <em>каждый для своей компании</em></h2>
+      <p class="lead">Состав у комплексов разный: где-то большая баня на дровах и хамам, где-то бассейн с гидромассажем, бильярд или теннисный стол. Скажите, сколько вас и что хотите, администратор подберёт комплекс.</p>
+    </div>
+    <div class="table">
+      <div class="row head"><span>Комплекс</span><span>Пн–чт, 8:00–18:00</span><span>Пн–чт с 18:00 до 8:00, пт, сб, вс</span></div>
+      <div class="row"><span class="n">№1</span><span class="p">4 000 ₽ <span>/ час</span></span><span class="p">4 500 ₽ <span>/ час</span></span></div>
+      <div class="row"><span class="n">№2</span><span class="p">4 500 ₽ <span>/ час</span></span><span class="p">5 000 ₽ <span>/ час</span></span></div>
+      <div class="row"><span class="n">№3</span><span class="p">4 500 ₽ <span>/ час</span></span><span class="p">5 000 ₽ <span>/ час</span></span></div>
+      <div class="row"><span class="n">№4</span><span class="p">4 500 ₽ <span>/ час</span></span><span class="p">5 000 ₽ <span>/ час</span></span></div>
+      <div class="row"><span class="n">№5</span><span class="p">3 000 ₽ <span>/ час</span></span><span class="p">3 500 ₽ <span>/ час</span></span></div>
+      <div class="row"><span class="n">№6</span><span class="p">3 500 ₽ <span>/ час</span></span><span class="p">4 000 ₽ <span>/ час</span></span></div>
+    </div>
+    <div class="extra">
+      <span>Аренда камина — <b>3 000 ₽</b></span>
+      <span class="small" style="margin:0">Цены от 12 января 2026. Точную стоимость на ваше время подскажет администратор.</span>
+    </div>
+  </div>
+</section>
+
+<section class="split" id="banya">
+  <div class="wrap">
+    <div class="pair">
+      <div class="photo" style="background-image:url('https://cachizer2.2gis.com/reviews-photos/dbc34431-a6d8-4fc6-851a-d3966af7e88a.jpg')"></div>
+      <div class="photo" style="background-image:url('https://cachizer2.2gis.com/reviews-photos/9ff69df0-3c4d-492a-a58b-4dca6766e2db.jpg')"></div>
+    </div>
+    <div>
+      <h2 class="h">Баня на дровах <em>и хамам</em></h2>
+      <p class="lead">Русская парная топится дровами: жар сильный, а пар можно подстроить под себя. Рядом хамам в чёрной мозаике, горячий и влажный. Если хотите, чтобы вас попарили по-настоящему, позовите парильщика.</p>
+      <ul class="plain">
+        <li>Русская парная на дровах</li>
+        <li>Турецкий хамам</li>
+        <li>Парильщик</li>
+        <li>Веники</li>
+        <li>Полотенца и простыни</li>
+        <li>Тапочки</li>
+        <li>Чай</li>
+        <li>Wi-Fi</li>
+      </ul>
+      <p class="small">Тапочки, полотенца и простыни уже ждут в комплексе, с собой можно ничего не брать.</p>
+    </div>
+  </div>
+</section>
+
+<section class="split rev alt" id="pool">
+  <div class="wrap">
+    <div class="photo" style="background-image:url('https://cachizer1.2gis.com/reviews-photos/dc769b29-5cf9-4365-ba33-9692b89eb717.jpg')"></div>
+    <div>
+      <h2 class="h">Тёплый и холодный <em>бассейны</em></h2>
+      <p class="lead">Из парной в прохладный бассейн, потом в тёплый с гидромассажем. Вечером вода подсвечена синим, а в джакузи можно лежать хоть до утра: работаем круглосуточно.</p>
+      <ul class="plain">
+        <li>Холодный бассейн</li>
+        <li>Тёплый бассейн</li>
+        <li>Гидромассаж</li>
+        <li>Джакузи</li>
+        <li>Детский бассейн</li>
+        <li>Подсветка</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="rest" id="rest">
+  <div class="wrap">
+    <div class="rest-top">
+      <h2 class="h">Не только <em>париться</em></h2>
+      <p class="lead">Между заходами в баню можно сыграть в бильярд или настольный теннис, спеть в караоке, потанцевать или посидеть у камина. В комнатах отдыха есть ТВ, своя кухня и посуда, «от чайника до ложки», как пишут гости.</p>
+    </div>
+    <div class="grid">
+      <figure class="big" style="background-image:url('https://cachizer3.2gis.com/reviews-photos/865f2cdf-d202-43b2-879b-5dd49b59a50a.jpg')"><figcaption>Комната отдыха</figcaption></figure>
+      <figure style="background-image:url('https://cachizer1.2gis.com/reviews-photos/8c4f1e00-0d13-40ca-869f-dc3f60dc93fb.jpg?w=640')"><figcaption>Теннис</figcaption></figure>
+      <figure style="background-image:url('https://cachizer3.2gis.com/reviews-photos/fdfa035e-7eec-4633-8df6-d799fbadc42c.jpg?w=640')"><figcaption>Игры</figcaption></figure>
+      <figure style="background-image:url('https://cachizer3.2gis.com/reviews-photos/6e91f5b5-51e4-4b96-937e-82836d79f710.jpg?w=640')"><figcaption>Танцпол</figcaption></figure>
+      <figure style="background-image:url('https://i5.photo.2gis.com/main/branch/25/70000001027420917/common'); background-position: center 20%"><figcaption>Кухня</figcaption></figure>
+    </div>
+    <ul class="plain" style="margin-top:40px">
+      <li>Бильярд</li>
+      <li>Настольный теннис</li>
+      <li>Караоке</li>
+      <li>Танцпол</li>
+      <li>Камин</li>
+      <li>Комната отдыха</li>
+      <li>TV/DVD</li>
+      <li>Мангал</li>
+    </ul>
+  </div>
+</section>
+
+<section class="party">
+  <div class="wrap">
+    <h2 class="h" style="color:#fff">День рождения <br>на 25 человек</h2>
+    <div>
+      <p class="lead">Сюда часто приходят праздновать: большой комплекс вмещает всю компанию, есть где накрыть стол, потанцевать и попеть. Скажите при брони, что у вас праздник, и мы подготовим комплекс к вашему времени.</p>
+      <a class="btn" href="#book" data-party>Забронировать на праздник</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div style="background-image:url('https://cachizer3.2gis.com/reviews-photos/641bc44f-8b64-48e4-85fe-2a2fc42a620a.jpg?w=640')"></div>
+  <div style="background-image:url('https://cachizer1.2gis.com/reviews-photos/c7c62ff1-e0ee-4c7e-a74e-122f9f2a1963.jpg?w=640')"></div>
+  <div style="background-image:url('https://cachizer3.2gis.com/reviews-photos/8878651f-8592-436b-a921-823c32b62e08.jpg?w=640')"></div>
+  <div style="background-image:url('https://i5.photo.2gis.com/main/branch/25/70000001027420917/common'); background-position: center top"></div>
+  <div style="background-image:url('https://cachizer1.2gis.com/reviews-photos/44db5e33-b427-48ac-8851-849f7fd0810a.jpg?w=640')"></div>
+  <div style="background-image:url('https://cachizer2.2gis.com/reviews-photos/9ff69df0-3c4d-492a-a58b-4dca6766e2db.jpg?w=640')"></div>
+</div>
+
+<section class="reviews">
+  <div class="wrap">
+    <h2 class="h">Что пишут <em>гости</em></h2>
+    <div class="quotes">
+      <blockquote>«Пар лёгкий и приятный, помещение просторное. Есть всё необходимое: тапочки, мягкие полотенца, простыни, шапки для парной, чай и вода. Ничего с собой тащить не пришлось.»<cite>Иван</cite></blockquote>
+      <blockquote>«Замечательно отдохнули. Баня на дровах, топит как надо. Веник бодрый. Просторные помещения. Приветливая девушка на ресепшене.»<cite>Алексей</cite></blockquote>
+      <blockquote>«С друзьями праздновали день рождения в комнате №4. Очень большое пространство: большая баня и большой хамам, в главной комнате бильярд, бассейн и джакузи. Время пролетело незаметно.»<cite>Илья</cite></blockquote>
+    </div>
+    <p class="src">Рейтинг 5,0 и 347 оценок в <a href="https://2gis.ru/vladivostok/firm/70000001027420917/tab/reviews" target="_blank" rel="noopener">2ГИС</a> · Премия 2ГИС 2017 и 2019</p>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <h2 class="h">Забронировать</h2>
+      <p class="lead">Выберите дату, время и сколько вас будет. Заявка уйдёт нам в WhatsApp готовым сообщением, администратор подберёт комплекс и подтвердит время. Принимаем заявки круглосуточно.</p>
+      <p class="lead">Удобнее голосом? Звоните: <a href="tel:+79247312256" style="font-weight:700;color:var(--green-2)">+7 924 731-22-56</a></p>
+    </div>
+
+    <form class="form" id="bookForm" novalidate>
+      <label class="wide">Комплекс
+        <select name="complex">
+          <option value="">Подберите сами</option>
+          <option>№1</option><option>№2</option><option>№3</option>
+          <option>№4</option><option>№5</option><option>№6</option>
+        </select>
+      </label>
+      <label>Дата<input type="date" name="date" required></label>
+      <label>Время
+        <select name="time" required><option value="">Выберите</option></select>
+      </label>
+      <label>Сколько часов
+        <select name="hours">
+          <option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7 и больше</option>
+        </select>
+      </label>
+      <label>Гостей
+        <select name="guests"></select>
+      </label>
+      <div class="wide checks">
+        <label><input type="checkbox" name="parilshik"> Парильщик</label>
+        <label><input type="checkbox" name="kamin"> Камин</label>
+        <label><input type="checkbox" name="venik"> Веники</label>
+        <label><input type="checkbox" name="party"> У нас праздник</label>
+      </div>
+      <label>Имя<input type="text" name="name" autocomplete="given-name" required></label>
+      <label>Телефон<input type="tel" name="phone" autocomplete="tel" placeholder="+7" required></label>
+      <label class="wide">Комментарий<textarea name="comment" rows="1" placeholder="Например: нужен бассейн и караоке"></textarea></label>
+      <div class="wide send">
+        <button class="btn" type="submit">Отправить в WhatsApp</button>
+        <button class="btn line" type="button" id="tgBtn">Отправить в Telegram</button>
+      </div>
+      <p class="wide form-msg" id="formMsg" role="status"></p>
+      <p class="wide form-note">Нажимая кнопку, вы соглашаетесь на обработку имени и телефона для брони. Данные уходят только администратору комплекса.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <h2 class="h">Как нас <em>найти</em></h2>
+    <div class="c-grid">
+      <div>
+        <div class="c-row"><small>Адрес</small><div>ул. Стрелочная, 17Б ст2, 1 этаж<br>Первореченский район, Владивосток</div></div>
+        <div class="c-row"><small>Режим работы</small><div>Круглосуточно, без выходных</div></div>
+        <div class="c-row"><small>Телефоны</small><div><a href="tel:+79247312256">+7 924 731-22-56</a><br><a href="tel:+74232012256">+7 (423) 201-22-56</a></div></div>
+        <div class="c-row"><small>Как добраться</small><div>Остановка «ДСК» в 350 м, рядом 4 парковки</div></div>
+        <div class="c-row"><small>Оплата</small><div>Карта, наличные, QR-код, перевод через банк</div></div>
+        <div class="msg">
+          <a class="btn" href="https://wa.me/79247312256" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn line" href="https://t.me/+79247312256" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn line" href="viber://chat?number=%2B79247312256">Viber</a>
+          <a class="btn line" href="https://2gis.ru/vladivostok/firm/70000001027420917" target="_blank" rel="noopener">Маршрут в 2ГИС</a>
+        </div>
+      </div>
+      <div class="c-photo" style="background-image:url('https://cachizer1.2gis.com/reviews-photos/c6b62b23-e1dc-4599-ba15-7952f250f94b.jpg')" role="img" aria-label="Вывеска New эра на здании"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><small>САУНА</small>NEW ЭРА<small>ХАМАМ</small></span>
+    <span>Водно-оздоровительный комплекс, Владивосток</span>
+  </div>
+</footer>
+
+<div class="modal" id="tgModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tgTitle">
+    <button class="modal-x" type="button" data-close aria-label="Закрыть">×</button>
+    <h3 id="tgTitle">Заявка готова</h3>
+    <p class="ok" id="tgCopied">Текст уже скопирован ✓</p>
+    <p class="ok" id="tgManual" hidden>Скопируйте текст ниже: нажмите на него и удерживайте.</p>
+    <pre id="tgText"></pre>
+    <ol>
+      <li>Нажмите «Открыть чат в Telegram»</li>
+      <li>Нажмите на поле сообщения и удерживайте → <b>Вставить</b></li>
+      <li>Нажмите <b>Отправить</b></li>
+    </ol>
+    <div class="modal-actions">
+      <button class="btn" type="button" id="tgOpen">Открыть чат в Telegram</button>
+      <button class="btn line" type="button" id="tgCopyAgain">Скопировать ещё раз</button>
+    </div>
+  </div>
+</div>
+
+<div class="mbar">
+  <a class="btn" href="#book">Забронировать</a>
+  <a class="btn line" href="tel:+79247312256">Позвонить</a>
+</div>
+
+<script>
+// Шапка: фон при прокрутке, меню на телефоне
+(function () {
+  const header = document.querySelector("header");
+  const burger = header.querySelector(".burger");
+  const onScroll = () => header.classList.toggle("solid", window.scrollY > 40);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  const setOpen = (v) => { header.classList.toggle("open", v); burger.setAttribute("aria-expanded", v); };
+  burger.addEventListener("click", () => setOpen(!header.classList.contains("open")));
+  header.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+})();
+</script>
+
+<script>
+// Заявка уходит администратору готовым сообщением.
+// WhatsApp открывает чат с уже вставленным текстом.
+// Telegram по номеру телефона так не умеет, поэтому копируем заявку и подсказываем, куда вставить.
+(function () {
+  const WA_NUMBER = "79247312256";
+  const TG_LINK = "https://t.me/+79247312256";
+
+  const form = document.getElementById("bookForm");
+  const msg = document.getElementById("formMsg");
+  const f = form.elements;
+  const pad = (n) => String(n).padStart(2, "0");
+  const today = new Date();
+  f.date.min = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
+
+  // Работаем круглосуточно: любое время, до 25 гостей
+  for (let h = 0; h < 24; h++) f.time.add(new Option(`${pad(h)}:00`));
+  for (let g = 1; g <= 25; g++) f.guests.add(new Option(g, g, false, g === 6));
+
+  document.querySelector("[data-party]").addEventListener("click", () => { f.party.checked = true; });
+
+  function buildText() {
+    const required = [f.date, f.time, f.name, f.phone];
+    let ok = true;
+    required.forEach((el) => {
+      const bad = !el.value.trim() || (el === f.phone && el.value.replace(/\D/g, "").length < 10);
+      el.closest("label").classList.toggle("err", bad);
+      if (bad) ok = false;
+    });
+    if (!ok) { msg.textContent = "Заполните дату, время, имя и телефон."; return null; }
+
+    const [y, m, d] = f.date.value.split("-");
+    const extras = [f.parilshik.checked && "парильщик", f.kamin.checked && "камин", f.venik.checked && "веники"].filter(Boolean);
+    msg.textContent = "";
+    return [
+      `Здравствуйте! Хочу забронировать комплекс (заявка с сайта).`,
+      `Комплекс: ${f.complex.value || "подберите, пожалуйста"}`,
+      `Дата: ${d}.${m}.${y}, с ${f.time.value}`,
+      `Часов: ${f.hours.value}, гостей: ${f.guests.value}`,
+      extras.length ? `Дополнительно: ${extras.join(", ")}` : "",
+      f.party.checked ? "У нас праздник" : "",
+      `Имя: ${f.name.value.trim()}`,
+      `Телефон: ${f.phone.value.trim()}`,
+      f.comment.value.trim() ? `Комментарий: ${f.comment.value.trim()}` : "",
+    ].filter(Boolean).join("\n");
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = buildText();
+    if (!text) return;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    msg.textContent = "Открываем WhatsApp: проверьте заявку и нажмите «Отправить».";
+  });
+
+  const tgModal = document.getElementById("tgModal");
+  const tgText = document.getElementById("tgText");
+  const tgCopied = document.getElementById("tgCopied");
+  const tgManual = document.getElementById("tgManual");
+  const copyAgain = document.getElementById("tgCopyAgain");
+
+  document.getElementById("tgBtn").addEventListener("click", async () => {
+    const text = buildText();
+    if (!text) return;
+    tgText.textContent = text;
+    tgCopied.hidden = true;
+    tgManual.hidden = true;
+    copyAgain.textContent = "Скопировать ещё раз";
+    tgModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    const copied = await copyText(text);
+    tgCopied.hidden = !copied;
+    tgManual.hidden = copied;
+  });
+
+  async function copyText(t) {
+    try {
+      const timeout = new Promise((_, no) => setTimeout(no, 1500));
+      await Promise.race([navigator.clipboard.writeText(t), timeout]);
+      return true;
+    } catch {}
+    const ta = document.createElement("textarea");
+    ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand("copy"); } catch {}
+    ta.remove(); return ok;
+  }
+
+  const closeModal = () => { tgModal.hidden = true; document.body.style.overflow = ""; };
+  document.getElementById("tgOpen").addEventListener("click", () => {
+    window.open(TG_LINK, "_blank", "noopener");
+    msg.textContent = "Вставьте заявку в чат Telegram и нажмите «Отправить».";
+    closeModal();
+  });
+  copyAgain.addEventListener("click", async () => {
+    const ok = await copyText(tgText.textContent);
+    copyAgain.textContent = ok ? "Скопировано ✓" : "Выделите текст выше";
+  });
+  tgModal.addEventListener("click", (e) => { if (e.target === tgModal || e.target.closest("[data-close]")) closeModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !tgModal.hidden) closeModal(); });
+})();
+</script>
+
+</body>
+</html>
